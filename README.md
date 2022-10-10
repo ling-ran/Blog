@@ -1,7 +1,7 @@
 # C语言
 一个小白的学习过程  
 >打印100到200的素数过程优化  
-'''c
+```c
 #include"stdio.h"
 #include"math.h"
 int main()//100到200的素数
@@ -25,4 +25,4 @@ int main()//100到200的素数
 	printf("\n%d", count);
 	return 0;
 }
-'''
+```
