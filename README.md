@@ -7,6 +7,89 @@ return | do| while | for | switch | case | break| continue |
 default | goto| sizeof | auto | register | static | extern | unsigned |
 signed | typedef| struct | enum | union | void | const | volatile |
 -------------------------------------------------------------------------------------------------- 
+ -  **register**大量频繁使用的数据，放在寄存器中，提升效率，在数据前加register(可以不加编译器可以识别）
+ - **struct**结构体
+ - **union**联合体（共用体）
+ - **define include**是预处理指令，不是关键词
+ - **typedef**
+ ```c
+ typedef unsigned int un_it
+//typedef 顾名思义是类型定义，这里应该理解为类型重命名。
+int main()
+{
+ unsigned int num1 = 1;
+ un_it num2 = 1;
+ //观察num1和num2,这两个变量的类型是一样的
+ return 0;
+｝
+```
+>**static**用来修饰变量和函数的 
+> 
+1.修饰局部变量   称为静态局部将变量改变局部变量的生命周期，本质上是改变了变量的存储类型。
+![static](https://img-blog.csdnimg.cn/a20b1a8782c6457fbdac63ef53e42710.jpeg#pic_center)
+```c
+//代码1
+#include <stdio.h>
+void test()
+{
+    int i = 0;
+    i++;
+    printf("%d ", i);
+}
+int main()
+{
+ int i = 0;
+    for(i=0; i<10; i++)
+   {
+        test();
+   }
+    return 0;
+}
+```
+
+2.static修饰局部变量改变了变量的生命周期，让静态局部变量出了作用域依然存在，到程序结束生命周期才结束。
+```c
+//代码二
+ void test()
+{
+ static修饰局部变量
+ static int i = 0;
+ i++; 
+ printf("%d\n", i);
+}
+int main()
+{
+ int i = 0;
+ for (i = 0; i < 10; i++)
+ {
+  test();
+ }
+ return 0;
+}
+```
+3.修饰函数-称为静态函数
+```c
+三.//代码1
+int g_val = 2018;
+//test.c
+int main()
+{
+    printf("%d\n", g_val);
+    return 0;
+}
+//代码2
+static int g_val = 2018;
+//test.c
+int main()
+{
+    printf("%d\n", g_val);
+    return 0;
+}
+```
+>代码1正常，代码2在编译的时候会出现连接性错误。
+结论：
+一个全局变量被static修饰，使得这个全局变量只能在本源文件内使用，不能在其他源文件内使用
+
  ## 数据类型
 - C语言中有四大数据类型，分为基本类型、构造类型、指针类型、空类型
        
