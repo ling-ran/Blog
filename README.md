@@ -214,3 +214,36 @@ int main()
 	return 0;
 }
 ```
+
+
+指针
+32位系统最多支持4G内存
+十六进制Hexadecimal
+1 2 ……10  11  12  13  14  15
+1 2……A    B    C    D    E    F
+指针就是地址
+32位是4个字节 64位是8个字节
+
+结构体.成员变量   就能找到结构体当中的成员
+
+int main()
+{
+ int arr[10] = { 0 };
+ printf("%d\n", sizeof(arr));
+ int b = sizeof(arr) / sizeof(arr[0]);
+ printf("%d\n", b);
+ return 0;
+}
+
+加~输出反码
+int main()
+{
+ int a = 1;
+ printf("%d\n", ~a);
+ return 0;
+}
+整数在内存存储的是补码
+一个整数二进制表示有两种原码反码补码
+正整数原码补码反码都相同
+补码＝反码＋1
+正数32位最高位0负数0 
